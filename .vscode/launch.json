@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GestionCliniqueBackendApplication<gestion-clinique-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.clinique.yannic.gestion_clinique_backend.GestionCliniqueBackendApplication",
+            "projectName": "gestion-clinique-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
