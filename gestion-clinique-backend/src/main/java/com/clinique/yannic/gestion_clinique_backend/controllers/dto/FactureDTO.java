@@ -1,6 +1,7 @@
 package com.clinique.yannic.gestion_clinique_backend.controllers.dto;
 
 import com.clinique.yannic.gestion_clinique_backend.models.Facture;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -8,15 +9,23 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FactureDTO {
 
     @JsonProperty(access = Access.READ_ONLY)
     @Schema(description = "Identifiant généré automatiquement", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
+    @JsonProperty("montant")
     private BigDecimal montant;
+    
+    @JsonProperty("dateFacture")
     private LocalDate dateFacture;
+    
+    @JsonProperty("statut")
     private String statut;
+    
+    @JsonProperty("rendezVousId")
     private Long rendezVousId;
 
     // Constructeur vide (obligatoire pour Jackson)

@@ -90,6 +90,11 @@ public class PrescriptionService {
 
     // Méthode de création à partir du DTO
     public Prescription createPrescriptionFromDTO(PrescriptionRequestDTO dto) {
+        // Vérifier que les IDs ne sont pas null
+        if (dto.getIdPatient() == null || dto.getIdRendezVous() == null || dto.getIdMedecin() == null) {
+            throw new IllegalArgumentException("Les IDs patient, rendez-vous et médecin sont obligatoires");
+        }
+        
         Prescription prescription = new Prescription();
         mapDtoToPrescription(dto, prescription);
         return prescriptionRepository.save(prescription);

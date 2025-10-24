@@ -1,12 +1,30 @@
 package com.clinique.yannic.gestion_clinique_backend.controllers.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PrescriptionRequestDTO {
 
+    @JsonProperty("idPatient")
+    @NotNull(message = "L'ID du patient est obligatoire")
     private Long idPatient;
+    
+    @JsonProperty("idRendezVous")
+    @NotNull(message = "L'ID du rendez-vous est obligatoire")
     private Long idRendezVous;
+    
+    @JsonProperty("idMedecin")
+    @NotNull(message = "L'ID du médecin est obligatoire")
     private Long idMedecin;
+    @JsonProperty("medicaments")
     private String medicaments;
+    
+    @JsonProperty("instructions")
     private String instructions;
+    
+    @JsonProperty("autresInformations")
     private String autresInformations;
 
     public PrescriptionRequestDTO() {

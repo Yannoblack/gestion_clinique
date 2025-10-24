@@ -12,5 +12,8 @@ public interface FactureRepository extends JpaRepository<Facture, Long> {
 
     // Récupérer toutes les factures associées à un patient via ses rendez-vous
     List<Facture> findByRendezVous_Patient(Patient patient);
+    
+    // Vérifier si une facture existe déjà pour un rendez-vous
+    boolean existsByRendezVousId(Long rendezVousId);
 
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -138,26 +139,10 @@ public class RendezVousController {
         return ResponseEntity.ok(result);
     }
 
-    @Operation(
-            summary = "Test de parsing JSON",
-            description = "Endpoint de test pour vérifier le parsing du JSON"
-    )
-    @PostMapping("/test-json")
-    public ResponseEntity<Map<String, Object>> testJsonParsing(@RequestBody RendezVousDTO dto) {
-        Map<String, Object> result = new java.util.HashMap<>();
-        result.put("received", true);
-        result.put("patientId", dto.getPatientId());
-        result.put("medecinId", dto.getMedecinId());
-        result.put("dateHeure", dto.getDateHeure());
-        result.put("salle", dto.getSalle());
-        result.put("statut", dto.getStatut());
-        result.put("notes", dto.getNotes());
-        return ResponseEntity.ok(result);
-    }
-
     // =========================
     // ENDPOINTS DE CRÉATION
     // =========================
+
 
     @Operation(
             summary = "Créer un nouveau rendez-vous",

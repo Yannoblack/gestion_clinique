@@ -30,8 +30,8 @@ public class Utilisateur implements UserDetails {
 
     @Column(nullable = false)
     @NotBlank(message = "Le rôle ne peut pas être vide")
-    @Pattern(regexp = "^(ROLE_ADMIN|ROLE_USER|ROLE_MEDECIN|ROLE_SECRETAIRE)$", 
-             message = "Le rôle doit être ROLE_ADMIN, ROLE_USER, ROLE_MEDECIN ou ROLE_SECRETAIRE")
+    @Pattern(regexp = "^(ROLE_ADMIN|ROLE_USER|ROLE_MEDECIN|ROLE_SECRETAIRE|ROLE_PATIENT)$", 
+             message = "Le rôle doit être ROLE_ADMIN, ROLE_USER, ROLE_MEDECIN, ROLE_SECRETAIRE ou ROLE_PATIENT")
     private String role = "ROLE_USER";
 
     public Long getId() {

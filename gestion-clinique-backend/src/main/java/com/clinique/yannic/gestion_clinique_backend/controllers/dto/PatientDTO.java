@@ -1,36 +1,48 @@
 package com.clinique.yannic.gestion_clinique_backend.controllers.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PatientDTO {
 
     @NotBlank(message = "Le nom est obligatoire")
     @Size(max = 100)
+    @JsonProperty("nom")
     private String nom;
 
     @NotBlank(message = "Le prénom est obligatoire")
     @Size(max = 100)
+    @JsonProperty("prenom")
     private String prenom;
 
     @Email(message = "Format d'email invalide")
     @Size(max = 150)
+    @JsonProperty("email")
     private String email;
 
     @Size(max = 15)
+    @JsonProperty("telephone")
     private String telephone;
 
     @PastOrPresent(message = "La date de naissance ne peut pas être dans le futur")
+    @JsonProperty("dateNaissance")
     private LocalDate dateNaissance;
 
     @Size(max = 500)
+    @JsonProperty("adresse")
     private String adresse;
 
     @Size(max = 20)
+    @JsonProperty("numeroSecuriteSociale")
     private String numeroSecuriteSociale;
 
+    @JsonProperty("antecedents")
     private String antecedents;
 
+    @JsonProperty("allergies")
     private String allergies;
 
     // Constructeur vide

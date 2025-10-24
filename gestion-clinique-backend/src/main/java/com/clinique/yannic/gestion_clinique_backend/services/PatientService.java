@@ -24,11 +24,15 @@ public class PatientService {
     }
 
     public Patient creerPatient(PatientDTO patientDTO) {
-        if (patientDTO.getEmail() != null && patientRepository.existsByEmail(patientDTO.getEmail())) {
+        // Vérifier l'unicité de l'email seulement si fourni
+        if (patientDTO.getEmail() != null && !patientDTO.getEmail().trim().isEmpty() 
+            && patientRepository.existsByEmail(patientDTO.getEmail())) {
             throw new DuplicateResourceException("Un patient avec cet email existe déjà");
         }
-        if (patientDTO.getNumeroSecuriteSociale() != null &&
-                patientRepository.existsByNumeroSecuriteSociale(patientDTO.getNumeroSecuriteSociale())) {
+        
+        // Vérifier l'unicité du numéro de sécurité sociale seulement si fourni
+        if (patientDTO.getNumeroSecuriteSociale() != null && !patientDTO.getNumeroSecuriteSociale().trim().isEmpty()
+            && patientRepository.existsByNumeroSecuriteSociale(patientDTO.getNumeroSecuriteSociale())) {
             throw new DuplicateResourceException("Un patient avec ce numéro de sécurité sociale existe déjà");
         }
 

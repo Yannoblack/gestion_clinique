@@ -68,14 +68,6 @@ public class RendezVousService {
      * Créer un nouveau rendez-vous
      */
     public RendezVousDTO createRendezVous(RendezVousDTO dto) {
-        // Log pour débogage
-        System.out.println("=== DEBUG RendezVousService.createRendezVous ===");
-        System.out.println("DTO reçu: " + dto);
-        System.out.println("PatientId: " + dto.getPatientId());
-        System.out.println("MedecinId: " + dto.getMedecinId());
-        System.out.println("DateHeure: " + dto.getDateHeure());
-        System.out.println("Salle: " + dto.getSalle());
-        
         // Validation des données
         validateRendezVousDTO(dto);
         
@@ -255,17 +247,11 @@ public class RendezVousService {
      * Valider les données du DTO
      */
     private void validateRendezVousDTO(RendezVousDTO dto) {
-        System.out.println("=== DEBUG validateRendezVousDTO ===");
-        System.out.println("DTO: " + dto);
-        
         if (dto == null) {
-            System.out.println("ERREUR: DTO est null");
             throw new IllegalArgumentException("Le DTO du rendez-vous ne peut pas être null");
         }
         
-        System.out.println("PatientId: " + dto.getPatientId());
         if (dto.getPatientId() == null) {
-            System.out.println("ERREUR: PatientId est null");
             throw new IllegalArgumentException("L'ID du patient est obligatoire");
         }
         

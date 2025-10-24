@@ -102,6 +102,14 @@ public class FactureService {
     public FactureDTO createFactureFromDTO(FactureDTO dto) {
         Assert.notNull(dto, "Les détails de la facture (DTO) ne peuvent pas être nuls.");
 
+        // Vérifier si une facture existe déjà pour ce rendez-vous
+        if (dto.getRendezVousId() != null) {
+            boolean factureExists = factureRepository.existsByRendezVousId(dto.getRendezVousId());
+            if (factureExists) {
+                throw new IllegalStateException("Une facture existe déjà pour ce rendez-vous");
+            }
+        }
+
         Facture facture = toEntity(dto);
 
         // Lier le rendez-vous si un ID est fourni

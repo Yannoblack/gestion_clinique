@@ -24,7 +24,7 @@ public class Medecin {
     @Size(min = 2, max = 50, message = "Le prénom doit contenir entre 2 et 50 caractères")
     private String prenom;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     @NotBlank(message = "La spécialité ne peut pas être vide")
     @Size(max = 100, message = "La spécialité ne peut pas dépasser 100 caractères")
     private String specialite;

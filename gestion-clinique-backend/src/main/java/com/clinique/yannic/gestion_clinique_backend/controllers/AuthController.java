@@ -40,7 +40,8 @@ public class AuthController {
             throw new BadCredentialsException("Identifiants invalides");
         }
         String token = jwtUtil.generateToken(username);
-        return ResponseEntity.ok(Map.of("token", token));
+        String role = userOpt.get().getRole();
+        return ResponseEntity.ok(Map.of("token", token, "role", role));
     }
 
     @PostMapping("/register")
@@ -60,6 +61,6 @@ public class AuthController {
         utilisateurRepository.save(user);
 
         String token = jwtUtil.generateToken(username);
-        return ResponseEntity.ok(Map.of("token", token));
+        return ResponseEntity.ok(Map.of("token", token, "role", role));
     }
 }
