@@ -97,7 +97,7 @@ Le projet suit une architecture en couches avec séparation claire entre le fron
 - **Lombok** - Réduction du code boilerplate
 
 ### Frontend
-- **Angular 17.3.0** - Framework frontend
+- **Angular 20** - Framework frontend
 - **TypeScript 5.4.2** - Langage de programmation
 - **SCSS** - Préprocesseur CSS
 - **RxJS** - Programmation réactive
@@ -120,7 +120,7 @@ Le projet suit une architecture en couches avec séparation claire entre le fron
 ### Pour le Frontend
 - Node.js 18 ou supérieur
 - npm 8 ou supérieur
-- Angular CLI 17.3.17
+- Angular CLI 20
 
 ### Base de données
 - PostgreSQL avec une base de données nommée `gestion_clinique`
